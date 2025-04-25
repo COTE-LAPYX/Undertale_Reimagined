@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9eee68b4-d515-47f7-82b5-a6d8b03612da" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Undertale_Reimagined.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/fonts/determination.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/maps/sandbox.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/maps/startroom.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/maps/tutorialroom.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/chara_spritesheet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/slava_spritesheet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/tiles/collisionsheet1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/tiles/tilesheet1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/enums/DirectionEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/enums/GameStateEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/events/EventHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/events/EventRect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/CollisionChecker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/CustomFontLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/handlers/KeyHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/handlers/MouseHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tile/Tile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tile/TileManager.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2wBpB1gbkFgaFlMuy7biVUJJ5PL" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "F:/COTE/IdeaProjects/Undertale_Reimagined/src/events"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\src\events" />
+      <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\res\fonts" />
+      <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\res\maps" />
+      <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\res\tiles" />
+      <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\res\player" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\res" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="Undertale_Reimagined" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9eee68b4-d515-47f7-82b5-a6d8b03612da" name="Changes" comment="" />
+      <created>1745524683846</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1745524683846</updated>
+    </task>
+    <servers />
+  </component>
+</project>
