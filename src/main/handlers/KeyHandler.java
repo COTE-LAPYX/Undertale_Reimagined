@@ -1,5 +1,7 @@
 package main.handlers;
 
+import enums.GameStateEnum;
+import enums.TitleStateEnum;
 import main.GamePanel;
 import main.Main;
 
@@ -7,8 +9,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class KeyHandler implements KeyListener {
-
-    public boolean upPressed, downPressed, leftPressed, rightPressed;
+    public int upKey = KeyEvent.VK_UP;
+    public int leftKey = KeyEvent.VK_LEFT;
+    public int rightKey = KeyEvent.VK_RIGHT;
+    public int downKey = KeyEvent.VK_DOWN;
+    public int acceptKey = KeyEvent.VK_ENTER;
+    public int specialKey = KeyEvent.VK_X;
+    public boolean upPressed, downPressed, leftPressed, rightPressed, specialPressed;
     public boolean debugMode = false;
 
     GamePanel gp;
@@ -30,27 +37,84 @@ public class KeyHandler implements KeyListener {
             System.out.println(KeyEvent.getKeyText(code));
             System.out.println("------------------------------");
         }
+
+        if (code == KeyEvent.VK_F11) {
+            gp.isFullScreenOn = !gp.isFullScreenOn;
+            gp.setFullScreen();
+            Main.setFullScreen(gp.isFullScreenOn);
+        }
+
+
         switch (gp.gameState){
+            case TITLE -> {
+                //region Title
+                switch (gp.titleState){
+                    case CUTSCENE -> {
+                        if (code == acceptKey){
+                            if (gp.ui.dialogNum <= 5){
+                                gp.ui.dialogNum++;
+                            } else {
+                                gp.titleState = TitleStateEnum.PRESS_TO_CONTINUE;
+                            }
+                        }
+                    }
+                    case PRESS_TO_CONTINUE -> {
+                        if (code == acceptKey){
+                            gp.loadMapAndEntity("startroom");
+                            gp.gameState = GameStateEnum.PLAY;
+                        }
+                    }
+                }
+
+                //endregion
+            }
             case PLAY -> {
                 //region Play
-                if (code == KeyEvent.VK_W) upPressed = true;
-                if (code == KeyEvent.VK_S) downPressed = true;
-                if (code == KeyEvent.VK_A) leftPressed = true;
-                if (code == KeyEvent.VK_D) rightPressed = true;
+                if (code == upKey) upPressed = true;
+                if (code == downKey) downPressed = true;
+                if (code == leftKey) leftPressed = true;
+                if (code == rightKey) rightPressed = true;
                 if (code == KeyEvent.VK_J) debugMode = !debugMode;
-                if (code == KeyEvent.VK_F11) {
-                    gp.isFullScreenOn = !gp.isFullScreenOn;
-                    gp.setFullScreen();
-                    Main.setFullScreen(gp.isFullScreenOn);
-                }
 
                 if (debugMode){
                     if (code == KeyEvent.VK_MINUS){
                         gp.player.life-=1;
-                        System.out.println(gp.player.life);
                     }
                     if (code == KeyEvent.VK_EQUALS){
                         gp.player.life+=1;
+                    }
+                }
+                //endregion
+            }
+            case ENCOUNTER -> {
+                //region Encounter
+                if (code == upKey) upPressed = true;
+                if (code == downKey) downPressed = true;
+                if (code == leftKey) leftPressed = true;
+                if (code == rightKey) rightPressed = true;
+                if (code == specialKey) specialPressed = true;
+                if (code == KeyEvent.VK_J) debugMode = !debugMode;
+
+                if (debugMode) {
+                    if (code == KeyEvent.VK_MINUS) {
+                        gp.player.life -= 1;
+                    }
+                    if (code == KeyEvent.VK_EQUALS) {
+                        gp.player.life += 1;
+                    }
+                }
+
+                if (rightPressed) {
+                    gp.ui.commandNum++;
+                    if (gp.ui.commandNum > 3){
+                        gp.ui.commandNum = 0;
+                    }
+                }
+
+                if (leftPressed) {
+                    gp.ui.commandNum--;
+                    if (gp.ui.commandNum < 0){
+                        gp.ui.commandNum = 3;
                     }
                 }
                 //endregion
@@ -62,9 +126,10 @@ public class KeyHandler implements KeyListener {
     public void keyReleased(KeyEvent e) {
         int code = e.getKeyCode();
 
-        if (code == KeyEvent.VK_W) upPressed = false;
-        if (code == KeyEvent.VK_S) downPressed = false;
-        if (code == KeyEvent.VK_A) leftPressed = false;
-        if (code == KeyEvent.VK_D) rightPressed = false;
+        if (code == upKey) upPressed = false;
+        if (code == downKey) downPressed = false;
+        if (code == leftKey) leftPressed = false;
+        if (code == rightKey) rightPressed = false;
+        if (code == specialKey) specialPressed = false;
     }
 }

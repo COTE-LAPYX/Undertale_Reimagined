@@ -1,6 +1,8 @@
 package main;
 
-import entity.Entity;
+import entities.Entity;
+
+import java.util.List;
 
 
 public class CollisionChecker {
@@ -64,6 +66,37 @@ public class CollisionChecker {
 
                 break;
         }
-    } catch (ArrayIndexOutOfBoundsException ex){}
+    } catch (ArrayIndexOutOfBoundsException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+    public void checkHitBoxCollision(Entity entity, List<Entity> target) {
+
+        for (int i = 0; i < target.size(); i++) {
+            if (target.get(i) != null) {
+                entity.solidArea.x = entity.worldX + entity.solidArea.x;
+                entity.solidArea.y = entity.worldY + entity.solidArea.y;
+
+                target.get(i).solidArea.x = target.get(i).worldX + target.get(i).solidArea.x;
+                target.get(i).solidArea.y = target.get(i).worldY + target.get(i).solidArea.y;
+
+                switch (entity.direction) {
+                    case UP -> entity.solidArea.y -= entity.speed;
+                    case DOWN -> entity.solidArea.y += entity.speed;
+                    case LEFT -> entity.solidArea.x -= entity.speed;
+                    case RIGHT -> entity.solidArea.x += entity.speed;
+                }
+                if (entity.solidArea.intersects(target.get(i).solidArea)) {
+                    if (target.get(i) != entity) {
+                        entity.collisionOn = true;
+                    }
+                }
+                entity.solidArea.x = entity.solidAreaDefaultX;
+                entity.solidArea.y = entity.solidAreaDefaultY;
+                target.get(i).solidArea.x = target.get(i).solidAreaDefaultX;
+                target.get(i).solidArea.y = target.get(i).solidAreaDefaultY;
+            }
+        }
     }
 }

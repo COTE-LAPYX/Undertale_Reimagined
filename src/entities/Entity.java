@@ -1,4 +1,4 @@
-package entity;
+package entities;
 
 import enums.DirectionEnum;
 import main.GamePanel;
@@ -21,6 +21,7 @@ public class Entity {
     public int life;
     public DirectionEnum direction = DirectionEnum.DOWN;
     public int speed;
+    public int damage;
 
     public Entity(GamePanel gp) {
         this.gp = gp;

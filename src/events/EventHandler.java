@@ -1,7 +1,8 @@
 package events;
 
+import entities.encounters.Encounter;
+import entities.encounters.FloweyEncounter;
 import enums.DirectionEnum;
-import enums.GameStateEnum;
 import main.GamePanel;
 
 import java.util.Objects;
@@ -70,6 +71,10 @@ public class EventHandler {
                 if (hit(21, 37)) {
                     teleportEvent("startroom", DirectionEnum.DOWN, gp.tileSize * 28 + 16, gp.tileSize * 13);
                 }
+
+                if (hit(20, 30)) {
+                    encounterEvent(new FloweyEncounter(gp));
+                }
             }
         }
 
@@ -127,5 +132,9 @@ public class EventHandler {
         gp.player.direction = direction;
         gp.player.worldX = x;
         gp.player.worldY = y;
+    }
+
+    public void encounterEvent(Encounter encounter) {
+        gp.encounterManager.startEncounter(encounter);
     }
 }

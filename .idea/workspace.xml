@@ -1,39 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Undertale_Reimagined:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9eee68b4-d515-47f7-82b5-a6d8b03612da" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Undertale_Reimagined.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/fonts/determination.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/maps/sandbox.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/maps/startroom.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/maps/tutorialroom.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/chara_spritesheet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/slava_spritesheet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/collisionsheet1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/tilesheet1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/enums/DirectionEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/enums/GameStateEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/events/EventHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/events/EventRect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/CollisionChecker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/CustomFontLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/handlers/KeyHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/handlers/MouseHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tile/Tile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tile/TileManager.java" afterDir="false" />
+    <list default="true" id="9eee68b4-d515-47f7-82b5-a6d8b03612da" name="Changes" comment="InitialCommit">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/images/buttons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/images/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/images/slidesheet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/monsters/flowey/flowey_encounter_spritesheet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/monsters/flowey/flowey_spritesheet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/monsters/lirax/lirax_spritesheet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/souls_spritesheet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sounds/barks/determination.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sounds/barks/lirax_beep.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sounds/soundEffects/click.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/translations/english.tran" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/encounters/Encounter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/encounters/FloweyEncounter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/encounters/PlayerSoul.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/monsters/Flowey.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/utils/Hitbox.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/enums/EncounterStateEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/enums/TitleStateEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/AssetSetter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/DataManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/DialogManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/EncounterManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/SoundManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/fonts/determination.otf" beforeDir="false" afterPath="$PROJECT_DIR$/res/fonts/determination_eng.otf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/player/slava_spritesheet.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/player/slava_spritesheet.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/enums/GameStateEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enums/GameStateEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/events/EventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/events/EventHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/CollisionChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/CollisionChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/handlers/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/KeyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tile/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tiles/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tile/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tiles/TileManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +58,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -63,20 +78,32 @@
   "keyToString": {
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "F:/COTE/IdeaProjects/Undertale_Reimagined/src/events"
+    "last_opened_file_path": "F:/COTE/IdeaProjects/Undertale_Reimagined/res/images",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\src\events" />
-      <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\res\fonts" />
-      <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\res\maps" />
-      <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\res\tiles" />
+      <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\res\images" />
+      <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\res\sounds\barks\chipi" />
+      <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\res\sounds\soundEffects" />
+      <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\res\barks" />
       <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\res\player" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\res" />
+      <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\res\sounds\soundEffects" />
+      <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\res\sounds" />
+      <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\res\sounds\barks" />
+      <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\res\monsters\lirax" />
+      <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\res\sound" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="main" />
+      <recent name="entity.utils" />
     </key>
   </component>
   <component name="RunManager">
@@ -108,6 +135,30 @@
       <option name="presentableId" value="Default" />
       <updated>1745524683846</updated>
     </task>
+    <task id="LOCAL-00001" summary="InitialCommit">
+      <option name="closed" value="true" />
+      <created>1745617272311</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1745617272311</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="InitialCommit" />
+    <option name="LAST_COMMIT_MESSAGE" value="InitialCommit" />
   </component>
 </project>

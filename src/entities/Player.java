@@ -1,4 +1,4 @@
-package entity;
+package entities;
 
 import enums.DirectionEnum;
 import main.GamePanel;
@@ -15,6 +15,9 @@ public class Player extends Entity{
     public final int screenX;
     public final int screenY;
     int activityCounter = 0;
+    public int level = 1;
+    public int patience;
+    public int maxPatience;
 
     public Player(GamePanel gp, KeyHandler keyHandler) {
         super(gp);
@@ -34,6 +37,8 @@ public class Player extends Entity{
         solidAreaDefaultY = solidArea.y;
         solidArea.width = 30;
         solidArea.height = 46;
+        maxPatience = 60;
+        patience = maxPatience;
     }
 
     public void setDefaultValues() {
@@ -43,7 +48,7 @@ public class Player extends Entity{
         direction = DirectionEnum.DOWN;
 
 //        Player Status
-        maxLife = 30;
+        maxLife = 20;
         life = maxLife;
     }
 
@@ -123,7 +128,7 @@ public class Player extends Entity{
             case UP -> currentSprite = sprites[12+spriteNum];
         }
 
-        g2.drawImage(currentSprite, screenX, screenY, currentSprite.getWidth()* gp.scale, currentSprite.getHeight()*gp.scale, null);
+        g2.drawImage(currentSprite, screenX, screenY, currentSprite.getWidth() * gp.scale, currentSprite.getHeight() * gp.scale, null);
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
         g2.setColor(Color.blue);
         g2.drawRect(screenX + solidArea.x, screenY + solidArea.y, solidArea.width, solidArea.height);

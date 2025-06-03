@@ -1,17 +1,22 @@
 package main;
 
 
-import entity.Entity;
-import entity.Player;
+import entities.Entity;
+import entities.Player;
+import entities.encounters.PlayerSoul;
+import entities.utils.Hitbox;
+import enums.EncounterStateEnum;
 import enums.GameStateEnum;
+import enums.TitleStateEnum;
 import events.EventHandler;
 import main.handlers.KeyHandler;
 import main.handlers.MouseHandler;
-import tile.TileManager;
+import tiles.TileManager;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +32,7 @@ public class GamePanel extends JPanel implements Runnable {
     public final int maxWorldCol = 50;
     public final int maxWorldRow = 50;
     public final int screenWidth = tileSize * maxScreenCol;
+    public float volumeValue;
     int screenWidth2 = screenWidth;
     public final int screenHeight = tileSize * maxScreenRow;
     int screenHeight2 = screenHeight;
@@ -35,6 +41,8 @@ public class GamePanel extends JPanel implements Runnable {
     public int frames;
     public boolean isFullScreenOn = false;
     public GameStateEnum gameState = GameStateEnum.OTHER;
+    public EncounterStateEnum encounterState = EncounterStateEnum.NONE;
+    public TitleStateEnum titleState = TitleStateEnum.CUTSCENE;
     public KeyHandler keyHandler = new KeyHandler(this);
     public Player player = new Player(this, keyHandler);
     public TileManager tileManager = new TileManager(this);
@@ -51,6 +59,19 @@ public class GamePanel extends JPanel implements Runnable {
     List<Entity> entityList = new ArrayList<>();
     public Font basicFont;
     public String currentMapName = "startroom";
+    public Entity playerSoul = new PlayerSoul(this, keyHandler);
+    public List<Entity> hitboxes = new ArrayList<>();
+    public Entity currentEncounter;
+    public DialogManager dialogManager = new DialogManager(this);
+    public DataManager dataManager = new DataManager(this);
+    public AssetSetter assetSetter = new AssetSetter(this);
+    public EncounterManager encounterManager = new EncounterManager(this);
+    public SoundManager musicManager = new SoundManager(this);
+    public SoundManager soundEffectManager = new SoundManager(this);
+    public int maxEncounterAnimationCounter = 120;
+    public int encounterAnimationCounter = maxEncounterAnimationCounter;
+    public int maxBlackoutCounter = 60;
+    public int blackoutCounter = maxBlackoutCounter;
 
     //endregion
 
@@ -65,12 +86,19 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void setUpGame() {
-        basicFont = CustomFontLoader.loadCustomFont("res/fonts/determination.otf", 24);
+        basicFont = CustomFontLoader.loadCustomFont("res/fonts/determination_eng.otf", 24);
         tempScreen = new BufferedImage(screenWidth, screenHeight, BufferedImage.TYPE_INT_ARGB);
         g2 = (Graphics2D) tempScreen.getGraphics();
-        gameState = GameStateEnum.PLAY;
+        g2.setFont(basicFont);
+        gameState = GameStateEnum.TITLE;
 
-        loadMapAndEntity("startroom");
+        playSE("barks/determination");
+        try {
+            dataManager.loadData();
+            dataManager.loadOptionConfig();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void startGameThread() {
@@ -114,6 +142,22 @@ public class GamePanel extends JPanel implements Runnable {
         if (gameState == GameStateEnum.PLAY) {
             eventHandler.checkEvent();
             player.update();
+        } else if (gameState == GameStateEnum.ENCOUNTER){
+            playerSoul.update();
+
+            if (encounterState == EncounterStateEnum.TRANSITION){
+                if (blackoutCounter > 0) {
+                    blackoutCounter--;
+                } else {
+                    if (encounterAnimationCounter > 0){
+                        encounterAnimationCounter --;
+                    } else {
+                        encounterState = EncounterStateEnum.TURN_PLAYER;
+                        encounterAnimationCounter = maxEncounterAnimationCounter;
+                        blackoutCounter = maxBlackoutCounter;
+                    }
+                }
+            }
         }
     }
 
@@ -132,9 +176,21 @@ public class GamePanel extends JPanel implements Runnable {
 
             tileManager.draw(g2);
 
-            for (int i = 0; i < entityList.size(); i++) entityList.get(i).draw(g2);
+            for (int i = 0; i < entityList.size(); i++)
+                entityList.get(i).draw(g2);
 
             player.draw(g2);
+        } else if (gameState == GameStateEnum.ENCOUNTER) {
+            g2.setColor(Color.black);
+            g2.fillRect(0, 0, screenWidth, screenHeight);
+
+            playerSoul.draw(g2);
+
+            if (keyHandler.debugMode){
+                for (int i = 0; i < hitboxes.size(); i++) {
+                    hitboxes.get(i).draw(g2);
+                }
+            }
         }
         ui.draw(g2);
     }
@@ -160,5 +216,27 @@ public class GamePanel extends JPanel implements Runnable {
     public void loadMapAndEntity(String mapName) {
         currentMapName = mapName;
         tileManager.loadMap("/maps/" + mapName + ".txt");
+        assetSetter.loadEntity();
+    }
+
+    public void playMusic(String key) {
+        musicManager.setFile(key);
+        musicManager.play();
+        musicManager.loop();
+    }
+
+    public void continueMusic() {
+        musicManager.play();
+        musicManager.loop();
+    }
+
+    public void stopMusic() {
+        musicManager.stop();
+    }
+
+
+    public void playSE(String key) {
+        musicManager.setFile(key);
+        musicManager.play();
     }
 }
