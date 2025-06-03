@@ -53,6 +53,7 @@ public class KeyHandler implements KeyListener {
                         if (code == acceptKey){
                             if (gp.ui.dialogNum <= 5){
                                 gp.ui.dialogNum++;
+                                gp.ui.cutsceneCounter = 360;
                             } else {
                                 gp.titleState = TitleStateEnum.PRESS_TO_CONTINUE;
                             }
@@ -106,6 +107,7 @@ public class KeyHandler implements KeyListener {
 
                 if (rightPressed) {
                     gp.ui.commandNum++;
+                    gp.playSE("soundEffects/ping");
                     if (gp.ui.commandNum > 3){
                         gp.ui.commandNum = 0;
                     }
@@ -113,6 +115,7 @@ public class KeyHandler implements KeyListener {
 
                 if (leftPressed) {
                     gp.ui.commandNum--;
+                    gp.playSE("soundEffects/ping");
                     if (gp.ui.commandNum < 0){
                         gp.ui.commandNum = 3;
                     }

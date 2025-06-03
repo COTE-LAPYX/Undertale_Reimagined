@@ -4,11 +4,11 @@ package main;
 import entities.Entity;
 import entities.Player;
 import entities.encounters.PlayerSoul;
-import entities.utils.Hitbox;
 import enums.EncounterStateEnum;
 import enums.GameStateEnum;
 import enums.TitleStateEnum;
 import events.EventHandler;
+import main.Dialogs.DialogManager;
 import main.handlers.KeyHandler;
 import main.handlers.MouseHandler;
 import tiles.TileManager;
@@ -236,7 +236,7 @@ public class GamePanel extends JPanel implements Runnable {
 
 
     public void playSE(String key) {
-        musicManager.setFile(key);
-        musicManager.play();
+        soundEffectManager.setFile(key);
+        soundEffectManager.play();
     }
 }

@@ -1,11 +1,11 @@
-FloweyDialog1<S>* Just another enemy in our way. <N>  He isn't much of a threat...
-FloweyDialog2<S>* Hello World! <N>  This is a test dialog 2.
-FloweyDialog3<S>* Hello World! <N>  This is a test dialog 3.
-FloweyDialog4<S>* Hello World! <N>  This is a test dialog 4.
-FloweyDialog5<S>* Hello World! <N>  This is a test dialog 5.
-IntroDialog1<S> Long ago, <N> two races ruled over Earth: <N> HUMANS and MONSTERS.
-IntroDialog2<S> One day, war broke out <N> between the two races.
-IntroDialog3<S> After the long battle <N> the humans were victorious.
-IntroDialog4<S> They sealed monsters underground <N> with a magic spell.
-IntroDialog5<S>Many years later...
-IntroDialog6<S>          MT. CHIPI <N>            201X
+FloweyDialog1<S>barks/chara_beep<S>2<S>* Just another enemy in our way. <N>  He isn't much of a threat.
+FloweyDialog2<S>barks/determination<S>3<S>* Hello World! <N>  This is a test dialog 2.
+FloweyDialog3<S>barks/determination<S>3<S>* Hello World! <N>  This is a test dialog 3.
+FloweyDialog4<S>barks/determination<S>3<S>* Hello World! <N>  This is a test dialog 4.
+FloweyDialog5<S>barks/determination<S>3<S>* Hello World! <N>  This is a test dialog 5.
+IntroDialog1<S>barks/determination<S>3<S> Long ago, <N> two races ruled over Earth: <N> HUMANS and MONSTERS.
+IntroDialog2<S>barks/determination<S>3<S> One day, war broke out <N> between the two races.
+IntroDialog3<S>barks/determination<S>3<S> After the long battle <N> the humans were victorious.
+IntroDialog4<S>barks/determination<S>3<S> They sealed monsters<N> underground with <N> a magic spell.
+IntroDialog5<S>barks/determination<S>4<S> Many years later...
+IntroDialog6<S>barks/determination<S>3<S>          MT. CHIPI <N>            201X
