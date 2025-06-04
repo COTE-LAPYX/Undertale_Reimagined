@@ -74,7 +74,7 @@ public class DialogManager {
             dialogLetterCount++;
 
             if (dialogLetterCount < dialog.length() && dialog.charAt(dialogLetterCount) != ' ') {
-                gp.playSE(getDialogSoundKey(dialogKey));
+                gp.audioManager.playBark(getDialogSoundKey(dialogKey));
             }
 
         } else if (dialogCounter > 0) {

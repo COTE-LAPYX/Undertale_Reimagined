@@ -89,13 +89,18 @@ public class UI {
     }
 
     private void drawHealth(Graphics2D g2) {
-        g2.setColor(Color.red);
-        g2.fillRect(gp.tileSize * 4, (int) (gp.tileSize * 6.43f), gp.tileSize * 2, (int) (gp.tileSize / 3f));
+        int barWidth = gp.tileSize * 2 / 20;
         double oneScale = (double) gp.tileSize * 2 / gp.player.maxLife;
         double hpBarValue = (double) oneScale * gp.player.life;
 
+        g2.setColor(Color.red);
+        g2.fillRect(gp.tileSize * 4, (int) (gp.tileSize * 6.43f), gp.tileSize * 2, (int) (gp.tileSize / 3f));
+
         g2.setColor(Color.yellow);
         g2.fillRect(gp.tileSize * 4, (int) (gp.tileSize * 6.43f), (int) hpBarValue, (int) (gp.tileSize / 3f));
+
+        g2.setColor(Color.white);
+        g2.drawString(gp.player.life + " / " + gp.player.maxLife, (int) (gp.tileSize * 6.1f), gp.tileSize * 6.7f);
     }
 
     private void drawPatience(Graphics2D g2) {
@@ -163,7 +168,6 @@ public class UI {
         g2.drawString("LV " + gp.player.level, (int) (gp.tileSize * 2f), gp.tileSize * 6.7f);
 
         g2.drawString("HP", (int) (gp.tileSize * 3.5f), gp.tileSize * 6.7f);
-        g2.drawString(gp.player.life + " / " + gp.player.maxLife, (int) (gp.tileSize * 6.1f), gp.tileSize * 6.7f);
         drawHealth(g2);
 
         drawPatience(g2);
@@ -188,12 +192,12 @@ public class UI {
             dialogNum++;
         } else {
             gp.titleState = TitleStateEnum.PRESS_TO_CONTINUE;
+            gp.audioManager.stopMusic();
         }
 
         g2.setColor(Color.black);
         g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
         g2.drawImage(cutsceneImages.get(dialogNum - 1), 120, (int) (gp.tileSize * 1.2f), cutsceneImages.get(0).getWidth() * 2, cutsceneImages.get(0).getHeight() * 2, null);
-
         gp.dialogManager.drawDialog("IntroDialog" + dialogNum, g2, (int) (gp.tileSize * 1.80f), (int) (gp.tileSize * 5.5f), gp.basicFont, Color.white);
     }
 

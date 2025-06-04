@@ -6,7 +6,6 @@ public class Main {
     public static JFrame window;
 
     public static void main(String[] args) {
-
         window = new JFrame();
         GamePanel gamePanel = new GamePanel();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

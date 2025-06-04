@@ -45,22 +45,19 @@ public class KeyHandler implements KeyListener {
         }
 
 
-        switch (gp.gameState){
+        switch (gp.gameState) {
             case TITLE -> {
                 //region Title
-                switch (gp.titleState){
+                switch (gp.titleState) {
                     case CUTSCENE -> {
-                        if (code == acceptKey){
-                            if (gp.ui.dialogNum <= 5){
-                                gp.ui.dialogNum++;
-                                gp.ui.cutsceneCounter = 360;
-                            } else {
-                                gp.titleState = TitleStateEnum.PRESS_TO_CONTINUE;
-                            }
+                        if (code == acceptKey) {
+                            gp.ui.cutsceneCounter = 0;
+                            gp.titleState = TitleStateEnum.PRESS_TO_CONTINUE;
+                            gp.audioManager.stopMusic();
                         }
                     }
                     case PRESS_TO_CONTINUE -> {
-                        if (code == acceptKey){
+                        if (code == acceptKey) {
                             gp.loadMapAndEntity("startroom");
                             gp.gameState = GameStateEnum.PLAY;
                         }
@@ -77,12 +74,12 @@ public class KeyHandler implements KeyListener {
                 if (code == rightKey) rightPressed = true;
                 if (code == KeyEvent.VK_J) debugMode = !debugMode;
 
-                if (debugMode){
-                    if (code == KeyEvent.VK_MINUS){
-                        gp.player.life-=1;
+                if (debugMode) {
+                    if (code == KeyEvent.VK_MINUS) {
+                        gp.player.life -= 1;
                     }
-                    if (code == KeyEvent.VK_EQUALS){
-                        gp.player.life+=1;
+                    if (code == KeyEvent.VK_EQUALS) {
+                        gp.player.life += 1;
                     }
                 }
                 //endregion
@@ -105,19 +102,23 @@ public class KeyHandler implements KeyListener {
                     }
                 }
 
-                if (rightPressed) {
-                    gp.ui.commandNum++;
-                    gp.playSE("soundEffects/ping");
-                    if (gp.ui.commandNum > 3){
-                        gp.ui.commandNum = 0;
-                    }
-                }
+                switch (gp.encounterState){
+                    case TURN_PLAYER -> {
+                        if (rightPressed) {
+                            gp.ui.commandNum++;
+                            gp.audioManager.playSfx("soundEffects/ping");
+                            if (gp.ui.commandNum > 3) {
+                                gp.ui.commandNum = 0;
+                            }
+                        }
 
-                if (leftPressed) {
-                    gp.ui.commandNum--;
-                    gp.playSE("soundEffects/ping");
-                    if (gp.ui.commandNum < 0){
-                        gp.ui.commandNum = 3;
+                        if (leftPressed) {
+                            gp.ui.commandNum--;
+                            gp.audioManager.playSfx("soundEffects/ping");
+                            if (gp.ui.commandNum < 0) {
+                                gp.ui.commandNum = 3;
+                            }
+                        }
                     }
                 }
                 //endregion

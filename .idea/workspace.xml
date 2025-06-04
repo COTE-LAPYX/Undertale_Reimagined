@@ -9,15 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9eee68b4-d515-47f7-82b5-a6d8b03612da" name="Changes" comment="InitialCommit">
-      <change afterPath="$PROJECT_DIR$/res/sounds/soundEffects/ping.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Dialogs/Dialog.java" afterDir="false" />
+    <list default="true" id="9eee68b4-d515-47f7-82b5-a6d8b03612da" name="Changes" comment="dialog system rework">
+      <change afterPath="$PROJECT_DIR$/res/sounds/themes/titleIntroTheme.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/AudioManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sounds/soundEffects/click.wav" beforeDir="false" afterPath="$PROJECT_DIR$/res/sounds/barks/chara_beep.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/res/translations/english.tran" beforeDir="false" afterPath="$PROJECT_DIR$/res/translations/english.tran" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/DialogManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Dialogs/DialogManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/CustomFontLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/CustomFontLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Dialogs/DialogManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Dialogs/DialogManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/SoundManager.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/handlers/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/KeyHandler.java" afterDir="false" />
     </list>
@@ -49,10 +50,11 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;JAR Application.Undertale_Reimagined.jar.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/COTE/IdeaProjects/Undertale_Reimagined/res/sounds/soundEffects&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/COTE/IdeaProjects/Undertale_Reimagined/res/sounds/themes&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
@@ -60,11 +62,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\res\sounds\themes" />
       <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\res\sounds\soundEffects" />
       <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\res\images" />
       <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\res\sounds\barks\chipi" />
       <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\res\barks" />
-      <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\res\player" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\COTE\IdeaProjects\Undertale_Reimagined\res\sounds\barks" />
@@ -78,7 +80,7 @@
       <recent name="entity.utils" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="Undertale_Reimagined" />
@@ -92,9 +94,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Undertale_Reimagined.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/Undertale_Reimagined_jar/Undertale_Reimagined.jar" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JAR Application.Undertale_Reimagined.jar" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JAR Application.Undertale_Reimagined.jar" />
       </list>
     </recent_temporary>
   </component>
@@ -123,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748951910277</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="dialog system rework">
+      <option name="closed" value="true" />
+      <created>1748985563976</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1748985563976</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -139,6 +158,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="InitialCommit" />
-    <option name="LAST_COMMIT_MESSAGE" value="InitialCommit" />
+    <MESSAGE value="dialog system rework" />
+    <option name="LAST_COMMIT_MESSAGE" value="dialog system rework" />
   </component>
 </project>

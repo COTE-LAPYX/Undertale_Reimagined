@@ -24,6 +24,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     //region Variables
 
+    public final boolean IsDev = false;
     public final int originalTileSize = 32; // 16x16
     public final int scale = 2;
     public final int tileSize = originalTileSize * scale;
@@ -49,6 +50,7 @@ public class GamePanel extends JPanel implements Runnable {
     public CollisionChecker collisionChecker = new CollisionChecker(this);
     public MouseHandler mouseHandler = new MouseHandler(this);
     public EventHandler eventHandler = new EventHandler(this);
+    private CustomFontLoader customFontLoader = new CustomFontLoader();
     public UI ui = new UI(this);
     long timer = 0;
     int drawCount = 0;
@@ -66,8 +68,7 @@ public class GamePanel extends JPanel implements Runnable {
     public DataManager dataManager = new DataManager(this);
     public AssetSetter assetSetter = new AssetSetter(this);
     public EncounterManager encounterManager = new EncounterManager(this);
-    public SoundManager musicManager = new SoundManager(this);
-    public SoundManager soundEffectManager = new SoundManager(this);
+    public AudioManager audioManager = new AudioManager(this);
     public int maxEncounterAnimationCounter = 120;
     public int encounterAnimationCounter = maxEncounterAnimationCounter;
     public int maxBlackoutCounter = 60;
@@ -86,19 +87,19 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void setUpGame() {
-        basicFont = CustomFontLoader.loadCustomFont("res/fonts/determination_eng.otf", 24);
+        basicFont = customFontLoader.loadCustomFont("/fonts/determination_eng.otf", 24);
         tempScreen = new BufferedImage(screenWidth, screenHeight, BufferedImage.TYPE_INT_ARGB);
         g2 = (Graphics2D) tempScreen.getGraphics();
         g2.setFont(basicFont);
         gameState = GameStateEnum.TITLE;
 
-        playSE("barks/determination");
-        try {
+        audioManager.playMusic("themes/titleIntroTheme", false);
+/*        try {
             dataManager.loadData();
             dataManager.loadOptionConfig();
         } catch (IOException e) {
             throw new RuntimeException(e);
-        }
+        }*/
     }
 
     public void startGameThread() {
@@ -164,7 +165,26 @@ public class GamePanel extends JPanel implements Runnable {
     public void drawToScreen() {
         Graphics g = getGraphics();
         if (g != null) {
-            g.drawImage(tempScreen, 0, 0, screenWidth2, screenHeight2, null);
+            /*g.drawImage(tempScreen, 0, 0, screenWidth2, screenHeight2, null);
+            g.dispose();*/
+
+            double originalAspect = (double) screenWidth / screenHeight;
+            double targetAspect = (double) screenWidth2 / screenHeight2;
+
+            int drawWidth, drawHeight;
+            int offsetX = 0, offsetY = 0;
+
+            if (targetAspect > originalAspect) {
+                drawHeight = screenHeight2;
+                drawWidth = (int) (drawHeight * originalAspect);
+                offsetX = (screenWidth2 - drawWidth) / 2;
+            } else {
+                drawWidth = screenWidth2;
+                drawHeight = (int) (drawWidth / originalAspect);
+                offsetY = (screenHeight2 - drawHeight) / 2;
+            }
+
+            g.drawImage(tempScreen, offsetX, offsetY, drawWidth, drawHeight, null);
             g.dispose();
         }
     }
@@ -217,26 +237,5 @@ public class GamePanel extends JPanel implements Runnable {
         currentMapName = mapName;
         tileManager.loadMap("/maps/" + mapName + ".txt");
         assetSetter.loadEntity();
-    }
-
-    public void playMusic(String key) {
-        musicManager.setFile(key);
-        musicManager.play();
-        musicManager.loop();
-    }
-
-    public void continueMusic() {
-        musicManager.play();
-        musicManager.loop();
-    }
-
-    public void stopMusic() {
-        musicManager.stop();
-    }
-
-
-    public void playSE(String key) {
-        soundEffectManager.setFile(key);
-        soundEffectManager.play();
     }
 }
