@@ -1,4 +1,4 @@
-package main.Dialogs;
+package main.dialogs;
 
 import main.GamePanel;
 

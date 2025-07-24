@@ -6,9 +6,10 @@ import entities.Player;
 import entities.encounters.PlayerSoul;
 import enums.EncounterStateEnum;
 import enums.GameStateEnum;
+import enums.PlayerEncounterChoiceEnum;
 import enums.TitleStateEnum;
 import events.EventHandler;
-import main.Dialogs.DialogManager;
+import main.dialogs.DialogManager;
 import main.handlers.KeyHandler;
 import main.handlers.MouseHandler;
 import tiles.TileManager;
@@ -16,7 +17,6 @@ import tiles.TileManager;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +42,7 @@ public class GamePanel extends JPanel implements Runnable {
     public int frames;
     public boolean isFullScreenOn = false;
     public GameStateEnum gameState = GameStateEnum.OTHER;
+    public PlayerEncounterChoiceEnum playerChoice = PlayerEncounterChoiceEnum.NONE;
     public EncounterStateEnum encounterState = EncounterStateEnum.NONE;
     public TitleStateEnum titleState = TitleStateEnum.CUTSCENE;
     public KeyHandler keyHandler = new KeyHandler(this);

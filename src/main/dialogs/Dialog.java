@@ -1,4 +1,4 @@
-package main.Dialogs;
+package main.dialogs;
 
 public class Dialog {
     public String text;

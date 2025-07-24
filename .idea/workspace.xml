@@ -10,16 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9eee68b4-d515-47f7-82b5-a6d8b03612da" name="Changes" comment="dialog system rework">
-      <change afterPath="$PROJECT_DIR$/res/sounds/themes/titleIntroTheme.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/AudioManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/enums/PlayerEncounterChoiceEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/translations/english.tran" beforeDir="false" afterPath="$PROJECT_DIR$/res/translations/english.tran" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/CustomFontLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/CustomFontLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Dialogs/DialogManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Dialogs/DialogManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Dialogs/Dialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dialogs/Dialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Dialogs/DialogManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dialogs/DialogManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/SoundManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/handlers/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/KeyHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +81,7 @@
       <module name="Undertale_Reimagined" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="main.Dialogs.*" />
+          <option name="PATTERN" value="main.dialogs.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>

@@ -1,6 +1,7 @@
 package main.handlers;
 
 import enums.GameStateEnum;
+import enums.PlayerEncounterChoiceEnum;
 import enums.TitleStateEnum;
 import main.GamePanel;
 import main.Main;
@@ -119,6 +120,10 @@ public class KeyHandler implements KeyListener {
                                 gp.ui.commandNum = 3;
                             }
                         }
+
+                        if (code == acceptKey){
+                            handleEncounterStateChoice();
+                        }
                     }
                 }
                 //endregion
@@ -135,5 +140,31 @@ public class KeyHandler implements KeyListener {
         if (code == leftKey) leftPressed = false;
         if (code == rightKey) rightPressed = false;
         if (code == specialKey) specialPressed = false;
+    }
+
+    public void handleEncounterStateChoice(){
+        switch (gp.playerChoice){
+            case NONE -> {
+                switch (gp.ui.commandNum) {
+                    case 0 -> gp.playerChoice = PlayerEncounterChoiceEnum.FIGHT;
+                    case 1 -> gp.playerChoice = PlayerEncounterChoiceEnum.ACT;
+                    case 2 -> gp.playerChoice = PlayerEncounterChoiceEnum.ITEM;
+                    case 3 -> gp.playerChoice = PlayerEncounterChoiceEnum.MERCY;
+                }
+            }
+            case FIGHT -> {
+                System.out.println("Attack");
+            }
+            case ACT -> {
+                System.out.println("Act");
+            }
+            case ITEM -> {
+                System.out.println("Item");
+            }
+            case MERCY -> {
+                System.out.println("Mercy");
+            }
+        }
+
     }
 }
